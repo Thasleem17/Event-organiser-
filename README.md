@@ -1,5 +1,6 @@
 # Event-organiser-
-Event organiser helps in managing multiple events at same date and time at different venues at a college or an institution without any time or venue,sound system clash ..
+#Event organiser helps in managing multiple events at same date and time at different venues at a college or an institution without any time or venue,sound system clash ..
+
 #include<stdio.h>
 #include<string.h>
 #include <stdbool.h>
@@ -36,6 +37,7 @@ int eventexist(char d[],int t[],int v){
   }
   
 int eventdetailsmic(char d[],int t[]){
+ 
  for(int i=0;i<max_events;i++){
     if((strcmp(all[i].date, d) == 0)&&all[i].mic==1&&all[i].a=='1'){
      if(t[0]<= all[i].time[1] && t[1] >= all[i].time[0]){
@@ -61,7 +63,8 @@ int eventdetailslamp(char d[],int t[]){
       
   
 }
-int eventdetailspodium(char d[],int t[]){
+int eventdetailspodium(char d[],int t[])
+{
  for(int i=0;i<max_events;i++){
     if((strcmp(all[i].date, d) == 0)&&all[i].PODIUM==1&&all[i].a=='1'){
      if(t[0]<= all[i].time[1] &&t[1] >= all[i].time[0]){
@@ -180,7 +183,7 @@ void Bookevent(){
   printf("ENTER STARTING & ENDING TIME (24 hr format) in HHMM-HHMM format:\n");
   scanf("%d-%d",&t[0],&t[1]);
   b:
-  printf("Enter venue Number\n1.Amphi theatre-venue capacity-200\n2.Conference hall 1-venue capacity-100\n3.Conference hall 2-venue capacity-200\n4.Conference hall 3-venue capacity-100\n5.Lab-venue capacity-80\n6.Library-venue capacity-200\n");
+  printf("Enter venue Number\n 1.Amphi theatre-venue capacity-200\n2.Conference hall 1-venue capacity-100\n3.Conference hall 2-venue capacity-200\n4.Conference hall 3-venue capacity-100\n5.Lab-venue capacity-80\n6.Library-venue capacity-200\n");
   scanf("%d",&v);
   if(eventexist(d,t,v)==0||(eventtype==1&&v==1)||(eventtype==2&&v==6)||(eventtype==2&&v==5)){printf("\nPLEASE CHANGE VENUE\n");goto b;}
   printf("\nDO YOU REQUIRE SOUND SYSTEM?\npress '1' if yes, else '0'\n");
